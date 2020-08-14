@@ -1,0 +1,27 @@
+#1.服务端口号
+server:
+  port: 9090
+
+#2.服务名称
+spring:
+  application:
+    name: springbootShiro
+
+#3.数据库连接信息
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shiro?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: lanxin
+
+#4.Redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+#5.mybatis-plus配置
+mybatis:
+  #加载Mybatis映射文件
+  mapper-locations: classpath:mapper/*.xml
+  #执行配置文件（configuration.xml）中显示sql语句
+  config-location: classpath:mybatisconfig.xml

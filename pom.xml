@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.lanxin</groupId>
+  <artifactId>SpringBoot_Shiro</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>SpringBoot_Shiro</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+  </properties>
+
+  <!--所有的springboot工程都要继承springBoot的起步  依赖spring-boot-starter-parent-->
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.2.2.RELEASE</version>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!--springBoot要集成springMVC进行Controller的开发，所以项目要
+        导入web的启动依赖-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!--mybatis plus起步依赖-->
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-boot-starter</artifactId>
+      <version>3.2.0</version>
+    </dependency>
+
+    <!-- MySQL连接驱动 -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+
+    <!--  Shiro安全框架：认证、授权、企业会话管理、安全加密-->
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-spring</artifactId>
+      <version>1.4.0</version>
+    </dependency>
+
+
+    <!-- 配置使用redis启动器 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
+
+
+    <!--redis+shiro缓存插件-->
+    <!--作用1.缓存管理      解决shiro和数据库频繁交互    -->
+    <!--作用2.session管理  解决集群或分布式架构（需重复登录的问题，完成session持久化到redis中）-->
+    <dependency>
+      <groupId>org.crazycake</groupId>
+      <artifactId>shiro-redis</artifactId>
+      <version>2.4.2.1-RELEASE</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>shiro-core</artifactId>
+          <groupId>org.apache.shiro</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>jedis</artifactId>
+          <groupId>redis.clients</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+
+
+    <!--lombok插件 : 对实体bean的简化-->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.16.10</version>
+    </dependency>
+
+
+  </dependencies>
+
+</project>
